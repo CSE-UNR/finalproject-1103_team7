@@ -49,9 +49,18 @@ int mainMenu(){
 }
 
 //2. load image function 
-
-
+	int loadImg(){
+		outputFile = fopen("cat.txt", "r");
+			if (outputFile == NULL){
+				printf("File does not exist.");
+				}
+		fprintf(outputFile, "cat\n");
+		fclose(outputFile);
+	}
 //3. display image fuction
+
+
+//4. edit image menu function
 
 
 //5. crop image function 
