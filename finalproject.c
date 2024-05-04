@@ -46,7 +46,7 @@ return 0;
 }
 //functions start here !!  
 //1. display menu function
-int mainMenu(){
+int displayMenu(){
 	int choice; 
 	printf("**ERINSTAGRAM**\n"); 
 	printf("1: Load image\n");
