@@ -62,7 +62,18 @@ int mainMenu(){
 
 
 //4. edit image menu function
-
+	int editImg(){
+		int editChoice;
+		printf("**EDITING**");
+		printf("1: Crop Image");
+		printf("2: Dim Image");
+		printf("3: Brighten Image");
+		printf("0: Return to main menu");   
+		printf("Choose from one of the options above: ");
+		scanf("%d", &editChoice);
+		return 0;
+		}
+		
 
 //5. crop image function 
 
