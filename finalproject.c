@@ -56,6 +56,7 @@ int mainMenu(){
 				}
 		fprintf(outputFile, "cat\n");
 		fclose(outputFile);
+		printf("Created cat.txt.");
 	}
 //3. display image fuction
 
