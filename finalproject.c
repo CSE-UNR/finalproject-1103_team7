@@ -64,12 +64,12 @@ int mainMenu(){
 //4. edit image menu function
 	int editImg(){
 		int editChoice;
-		printf("**EDITING**");
-		printf("1: Crop Image");
-		printf("2: Dim Image");
-		printf("3: Brighten Image");
-		printf("0: Return to main menu");   
-		printf("Choose from one of the options above: ");
+		printf("**EDITING**\n");
+		printf("1: Crop Image\n");
+		printf("2: Dim Image\n");
+		printf("3: Brighten Image\n");
+		printf("0: Return to main menu\n");   
+		printf("Choose from one of the options above: \n");
 		scanf("%d", &editChoice);
 		return 0;
 		}
