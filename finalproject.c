@@ -3,9 +3,6 @@ Authors: Suebin Hur and Raina Santos
 <<<<<<< HEAD
 Final Project - Image Selection
 Section 1103 - Team 7
-*/
-
-
 =======
 Purpose: Final Group Project 
 Date: May, 07 2024 
@@ -29,7 +26,7 @@ int main(){
 
 
 
-
+return 0;
 }
 
 
@@ -59,7 +56,13 @@ int mainMenu(){
 		printf("Created cat.txt.");
 	}
 //3. display image fuction
-
+	char displayImg(){
+	char catText;
+	while ((catText = fgetc(outputFile))!= EOF){
+		printf("%c", catText);
+		}
+		return 0;
+	}
 
 //4. edit image menu function
 	int editImg(){
