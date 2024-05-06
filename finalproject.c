@@ -65,7 +65,7 @@ int mainMenu(){
 	}
 
 //4. edit image menu function
-	int editImg(){
+	int editImgMenu(){
 		int editChoice;
 		printf("**EDITING**\n");
 		printf("1: Crop Image\n");
@@ -82,13 +82,23 @@ int mainMenu(){
 
 
 //6. dim image function 
-
+	int dimImg(){
+	
 
 //7. brighten image function 
 
 
 //8. save image function 
-
+	int saveImg(){
+	char newImg;
+		outputFile = fopen(newcat.txt, "w");
+			if(outputFile == NULL){
+				printf("File does not exist.");
+				}
+		fprintf("%c", newImg);
+		fclose(outputFile);
+		printf("New file successfully created!");
+		}
 
 //9. extra credit: rotate image function 
 >>>>>>> 56604d5f7edf0615590ad42a4bc126a50fe21711
