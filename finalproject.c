@@ -8,10 +8,11 @@ Date: May, 07 2024
 
 #include <stdio.h> 
 #include <stdbool.h>
-
+#define CAT[ARRAY] 50
 //function prototypes here 
 
 int main(){
+int row, col;
 //declare variables 
 	FILE *catOutputFile;
 
@@ -57,19 +58,29 @@ int mainMenu(){
 }
 
 //2. load image function 
-	int loadImg(){
+	int loadImg(int catSize[row][col]){
+		char cat[array];
 		catOutputFile = fopen("cat.txt", "r");
+			printf("Name of the file: ");
+			scanf("%s", cat);
 			if (catOutputFile == NULL){
 			printf("File does not exist.");
 				}
-		fprintf(catOutputFile, "%s");
+			else{
+			int row = 0, col = 0;
+				while(fscanf(catOutputFile, "%d", &catSize[row][col]) == 1){
+					row++;
+					col++;
+				}
+			}
 		fclose(catOutputFile);
 		printf("File successfully loaded!");
 	}
+	/*
 //3. display image fuction
 	char displayImg(){
 	char catText;
-	while ((catText = fgetc(outputFile))!= EOF){
+	){
 		printf("%c", catText);
 		}
 		return 0;
@@ -100,22 +111,22 @@ int mainMenu(){
 	char readChar;
 		
 		for(readChar = 0; readChar != 0; readChar++){
-			if (readChar == "."){
+			if (readChar = "."){
 				printf(" ");
 			}
 		}
 		for(readChar = 0; readChar != 0; readChar++){
-			if (readChar == "o"){
+			if (readChar = "o"){
 				printf(".");
 			}
 		}
 		for(readChar = 0; readChar != 0; readChar++){
-			if (readChar == "O"){
+			if (readChar = "O"){
 				printf("o");
 			}
 		}
 		for(readChar = 0; readChar != 0; readChar++){
-			if (readChar == "0"){
+			if (readChar = "0"){
 				printf("O");
 			}
 		}
@@ -125,7 +136,7 @@ int mainMenu(){
 //7. brighten image function 
 	int brightenImg(){
 	char readChar, ___;
-		for(readChar == " "){
+		for(readChar =){
 			printf("."); 
 		}
 	}
@@ -134,7 +145,7 @@ int mainMenu(){
 //8. save image function 
 	int saveImg(){
 	char newImg[];
-		catOutputFile = fopen(newcat.txt, "w");
+		catOutputFile = fopen("newcat.txt", "w");
 			if(catOutputFile == NULL){
 				printf("File does not exist.");
 				}
@@ -144,4 +155,5 @@ int mainMenu(){
 		}
 
 //9. extra credit: rotate image function 
+*/
 
