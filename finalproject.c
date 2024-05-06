@@ -21,7 +21,10 @@ int main(){
 
 
 //enter switch for diff cases using functions made 
-
+	//case 1 
+	//case 2
+	//case 3
+	//default 
 
 
 return 0;
@@ -77,6 +80,9 @@ int mainMenu(){
 		
 
 //5. crop image function 
+	int cropImg(){
+	
+	}
 
 
 //6. dim image function 
@@ -85,6 +91,9 @@ int mainMenu(){
 	
 
 //7. brighten image function 
+	ing brightenImg(){
+	
+	}
 
 
 //8. save image function 
