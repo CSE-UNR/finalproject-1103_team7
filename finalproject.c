@@ -1,9 +1,7 @@
 /* 
 Authors: Suebin Hur and Raina Santos
-<<<<<<< HEAD
 Final Project - Image Selection
 Section 1103 - Team 7
-=======
 Purpose: Final Group Project 
 Date: May, 07 2024 
 */
@@ -83,6 +81,7 @@ int mainMenu(){
 
 //6. dim image function 
 	int dimImg(){
+		
 	
 
 //7. brighten image function 
@@ -101,4 +100,4 @@ int mainMenu(){
 		}
 
 //9. extra credit: rotate image function 
->>>>>>> 56604d5f7edf0615590ad42a4bc126a50fe21711
+
