@@ -87,7 +87,29 @@ int mainMenu(){
 
 //6. dim image function 
 	int dimImg(){
+	char readChar;
 		
+		for(readChar = 0; readChar != 0; readChar++){
+			if (readChar == "."){
+				printf(" ");
+			}
+		}
+		for(readChar = 0; readChar != 0; readChar++){
+			if (readChar == "o"){
+				printf(".");
+			}
+		}
+		for(readChar = 0; readChar != 0; readChar++){
+			if (readChar == "O"){
+				printf("o");
+			}
+		}
+		for(readChar = 0; readChar != 0; readChar++){
+			if (readChar == "0"){
+				printf("O");
+			}
+		}
+	}
 	
 
 //7. brighten image function 
