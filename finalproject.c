@@ -13,27 +13,33 @@ Date: May, 07 2024
 
 int main(){
 //declare variables 
-
+	FILE *catOutputFile;
 
 //main menu loop 
 	//mainMenu(); 
 
 
-//enter switch for diff cases using functions made 
-	//case 0: 
-		
-	//case 1:
-		//loadImg(); 
-	//case 2:
-		//displayImg(); 
-	//case 3:
-		//editImgMenu(); 
-	//default: 
+/*enter switch for diff cases using functions made 
+	 switch(){
+	case 0: 
+		printf("Exiting the program. Goodbye!");
+	break;
+	case 1:
+		loadImg(); 
+	break;
+	case 2:
+		displayImg(); 
+	break;
+	case 3:
+		editImgMenu(); 
+	break;
+	default: 
 		printf("Invalid option. Plese try again"); 
+	}
 	
 return 0;
 }
-
+*/
 
 //functions start here !!  
 //1. display menu function
@@ -52,13 +58,13 @@ int mainMenu(){
 
 //2. load image function 
 	int loadImg(){
-		outputFile = fopen("cat.txt", "r");
-			if (outputFile == NULL){
-				printf("File does not exist.");
+		catOutputFile = fopen("cat.txt", "r");
+			if (catOutputFile == NULL){
+			printf("File does not exist.");
 				}
-		fprintf(outputFile, "cat\n");
-		fclose(outputFile);
-		printf("Created cat.txt.");
+		fprintf(catOutputFile, "%s");
+		fclose(catOutputFile);
+		printf("File successfully loaded!");
 	}
 //3. display image fuction
 	char displayImg(){
@@ -127,13 +133,13 @@ int mainMenu(){
 
 //8. save image function 
 	int saveImg(){
-	char newImg;
-		outputFile = fopen(newcat.txt, "w");
-			if(outputFile == NULL){
+	char newImg[];
+		catOutputFile = fopen(newcat.txt, "w");
+			if(catOutputFile == NULL){
 				printf("File does not exist.");
 				}
-		fprintf("%c", newImg);
-		fclose(outputFile);
+		fprintf("%s", newImg);
+		fclose(catOutputFile);
 		printf("New file successfully created!");
 		}
 
