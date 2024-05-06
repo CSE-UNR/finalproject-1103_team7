@@ -16,17 +16,21 @@ int main(){
 
 
 //main menu loop 
-
-
+	//mainMenu(); 
 
 
 //enter switch for diff cases using functions made 
-	//case 1 
-	//case 2
-	//case 3
-	//default 
-
-
+	//case 0: 
+		
+	//case 1:
+		//loadImg(); 
+	//case 2:
+		//displayImg(); 
+	//case 3:
+		//editImgMenu(); 
+	//default: 
+		printf("Invalid option. Plese try again"); 
+	
 return 0;
 }
 
@@ -90,8 +94,11 @@ int mainMenu(){
 	
 
 //7. brighten image function 
-	ing brightenImg(){
-	
+	int brightenImg(){
+	char readChar, ___;
+		for(readChar == " "){
+			printf("."); 
+		}
 	}
 
 
