@@ -1,7 +1,5 @@
 /* 
 Authors: Suebin Hur and Raina Santos
-Final Project - Image Selection
-Section 1103 - Team 7
 Purpose: Final Group Project 
 Date: May, 07 2024 
 */
@@ -60,27 +58,15 @@ int displayMenu(){
 }
 
 //2. load image function 
-	int loadImg(int catSize[row][col]){
-		char array;
-		char cat[array];
-		int row = 0, col = 0;
-		catOutputFile = fopen("cat.txt", "r");
-			printf("Name of the file: ");
-			scanf("%s", cat);
-			if (catOutputFile == NULL){
-			printf("File does not exist.");
+	int loadImg(){
+		outputFile = fopen("cat.txt", "r");
+			if (outputFile == NULL){
+				printf("File does not exist.");
 				}
-			else{
-				while(fscanf(catOutputFile, "%d", &catSize[row][col]) == 1){
-					col++;
-					row++;
-				}
-			}
-		fclose(catOutputFile);
-		printf("File successfully loaded!");
-	
+		fprintf(outputFile, "cat\n");
+		fclose(outputFile);
+		printf("Created cat.txt.");
 	}
-	/*
 //3. display image fuction
 	char displayImg(){
 	char catText;
@@ -91,14 +77,14 @@ int displayMenu(){
 	}
 
 //4. edit image menu function
-	int editImgMenu(){
+	int editImg(){
 		int editChoice;
-		printf("**EDITING**\n");
-		printf("1: Crop Image\n");
-		printf("2: Dim Image\n");
-		printf("3: Brighten Image\n");
-		printf("0: Return to main menu\n");   
-		printf("Choose from one of the options above: \n");
+		printf("**EDITING**");
+		printf("1: Crop Image");
+		printf("2: Dim Image");
+		printf("3: Brighten Image");
+		printf("0: Return to main menu");   
+		printf("Choose from one of the options above: ");
 		scanf("%d", &editChoice);
 		return 0;
 		}
@@ -159,5 +145,4 @@ int displayMenu(){
 		}
 
 //9. extra credit: rotate image function 
-*/
-
+>>>>>>> 56604d5f7edf0615590ad42a4bc126a50fe21711
