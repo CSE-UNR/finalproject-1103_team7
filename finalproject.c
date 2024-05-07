@@ -111,7 +111,23 @@ int displayMenu(){
 	void displayImg(char catArray[][CAT_ARRAY], int *row, int *col){
 		for(int i=0; i < *row; i++){
 			for(int j=0; j < *col; j++){
-				printf("%c", catArray[i][j]);
+			//printf("%c", catArray[i][j]);
+				if(catArray[i][j] == '0'){
+					printf(" ");
+					}
+				if(catArray[i][j] == '1'){
+					printf("."); 
+				}
+				if(catArray[i][j] == '2'){
+					printf("o");
+				}
+				if(catArray[i][j] == '3'){
+					printf("O"); 
+				}
+				if(catArray[i][j] == '4'){
+					printf("0"); 
+				}
+				
 			}
 			printf("\n"); 
 		}
