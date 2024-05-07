@@ -85,8 +85,12 @@ int displayMenu(){
 
 //2. load image function 
 	int loadImg(char catArray[][CAT_ARRAY], int *row, int *col){
+	char filename[500]; 
+		printf("What is the name of the image file? "); 
+		scanf("%s", filename); 
+		
 		FILE *inputFile; 
-		inputFile = fopen("cat.txt", "r"); 
+		inputFile = fopen(filename, "r"); 
 			if (inputFile == NULL){
 				printf("File does not exist.");
 				return 1; 
