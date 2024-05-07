@@ -14,9 +14,9 @@ int loadImg(char catArray[][CAT_ARRAY], int *row, int *col);
 void displayImg(char catArray[][CAT_ARRAY], int *row, int *col); 
 int editImg(char catArray[][CAT_ARRAY], int *row, int *col); 
 void cropImg(char catArray[][CAT_ARRAY], int *row, int *col); 
-int dimImg(char catArray[][CAT_ARRAY], int *row, int *col); 
-void brightenImg(char catArray[][CAT_ARRAY], int *row, int *col); 
-void saveImg(char catArray[][CAT_ARRAY], int *row, int *col); 
+void dimImg(char catArray[][CAT_ARRAY], int row, int col); 
+void brightenImg(char catArray[][CAT_ARRAY], int row, int col); 
+void saveImg(char catArray[][CAT_ARRAY], int row, int col); 
 
 int main(){
 //declare variables 
@@ -37,6 +37,7 @@ int main(){
 				break;
 			case 3: 
 				editImg(catArray, &row, &col); 
+				break; 
 			case 0: 
 				printf("\nGoodbye!\n"); 
 				break; 
@@ -73,8 +74,8 @@ int displayMenu(){
 			}
 			
 		fscanf(inputFile, "%d %d", row, col); 
-			for(int i=0; i<*row; i++){
-				for(int j= 0; j <*col; j++){
+			for(int i=0; i < *row; i++){
+				for(int j= 0; j < *col; j++){
 					fscanf(inputFile, " %c", &catArray[i][j]); 
 				}
 			}
@@ -148,7 +149,7 @@ int displayMenu(){
 
 
 //6. dim image function 
-	int dimImg(char catArray[][CAT_ARRAY], int *row, int *col){
+	void dimImg(char catArray[][CAT_ARRAY], int row, int col){
 	char readChar;
 		
 		for(readChar = 0; readChar != 0; readChar++){
