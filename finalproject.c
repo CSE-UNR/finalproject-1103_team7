@@ -7,7 +7,16 @@ Date: May, 07 2024
 #include <stdio.h> 
 #include <stdbool.h>
 #define CAT_ARRAY 50
+
 //function prototypes here 
+int displayMenu(); 
+int loadImg(char catArray[][CAT_ARRAY], int *row, int *col); 
+void displayImg(char catArray[][CAT_ARRAY], int *row, int *col); 
+int editImg(); 
+void cropImg(char catArray[][CAT_ARRAY], int *row, int *col); 
+void dimImg(char catArray[][CAT_ARRAY], int *row, int *col); 
+void brightenImg(char catArray[][CAT_ARRAY], int *row, int *col); 
+void saveImg(char catArray[][CAT_ARRAY], int *row, int *col); 
 
 int main(){
 //declare variables 
@@ -15,30 +24,31 @@ int main(){
 	int mainMenu();
 	int loadImg(int catSize[row][col]);
 	int row, col;
+	row = 0, col = 0; 
+	char catArray[CAT_ARRAY][CAT_ARRAY]; 
+	int choice; 
 
-//main menu loop 
-	//mainMenu(); 
-
-
-/*enter switch for diff cases using functions made 
-	 switch(){
-	case 0: 
-		printf("Exiting the program. Goodbye!");
-	break;
-	case 1:
-		loadImg(); 
-	break;
-	case 2:
-		displayImg(); 
-	break;
-	case 3:
-		editImgMenu(); 
-	break;
-	default: 
-		printf("Invalid option. Plese try again"); 
-	}
+// enter switch for diff cases using functions made 
+	do{
+		choice = displayMenu(); 
+		switch(choice){
+			case 1: 
+				loadImg(catArray, &row, &col);
+				break; 
+			case 2: 
+				displayImag(catArray, &row, &col)
+				break;
+			case 3: 
+				editImg(catArray, row, col); 
+			case 0: 
+				printf("\nGoodbye!\n"); 
+				break; 
+			default:
+				printf("Invalid option, please try again.\n"); 
+			}
+	} while(choice != 0); 
 	
-return 0;
+	return 0; 
 }
 */
 }
@@ -54,7 +64,7 @@ int displayMenu(){
 	printf("\n");
 	printf("Choose from one of the options above: ");
 	scanf("%d", &choice); 
-	return 0; 
+	return choice; 
 }
 
 //2. load image function 
@@ -91,9 +101,12 @@ int displayMenu(){
 		
 
 //5. crop image function 
-	int cropImg(){
-	
+	void cropImg(char catArray[][CAT_ARRAY], int *row, int *col){
+		int right, left, bottom, top; 
+		printf("The image you want to crop is %d x %d.\n", *row, *col); 
+		printf("The row and column values start in the upper lefthand corner.\n"); 
 	}
+
 
 
 //6. dim image function 
@@ -124,13 +137,26 @@ int displayMenu(){
 	
 
 //7. brighten image function 
-	int brightenImg(){
-	char readChar, ___;
-		for(readChar =){
-			printf("."); 
-		}
+	void brightenImg(char catArray[][CAT_ARRAY], int row, int col){
+		for(int i = 0; i < row; i++)
+			for(int j = 0; j <col; j++){
+				switch(catArray[i][j]){
+					case '.':
+						catArray[i][j] = "o"; 
+						break; 
+					case 'o': 
+						catArray[i][j] = "O"; 
+						break; 
+					case 'O':
+						catArray[i][j] = "0"; 
+						break; 
+					case '0': 
+						break; 
+					default: 
+						break; 
+				}
+			}
 	}
-
 
 //8. save image function 
 	int saveImg(){
@@ -145,4 +171,4 @@ int displayMenu(){
 		}
 
 //9. extra credit: rotate image function 
->>>>>>> 56604d5f7edf0615590ad42a4bc126a50fe21711
+
