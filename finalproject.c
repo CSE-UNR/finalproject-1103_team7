@@ -150,27 +150,22 @@ int displayMenu(){
 
 //6. dim image function 
 	void dimImg(char catArray[][CAT_ARRAY], int row, int col){
-	char readChar;
+		for(int i=0; i<row; i++){
+			for(int j=0; j<col; j++){
+				if(catArray[i][j] == '.'){
+					printf(" ");
+				}
+				else if(catArray[i][j] == 'o'){
+					printf("."); 
+				}
+				else if(catArray[i][j] == 'O'){
+					printf("o");
+				}
+				else if(catArray[i][j] == '0'){
+					printf("O"); 
+				}
+			}
 		
-		for(readChar = 0; readChar != 0; readChar++){
-			if (readChar = "."){
-				printf(" ");
-			}
-		}
-		for(readChar = 0; readChar != 0; readChar++){
-			if (readChar = "o"){
-				printf(".");
-			}
-		}
-		for(readChar = 0; readChar != 0; readChar++){
-			if (readChar = "O"){
-				printf("o");
-			}
-		}
-		for(readChar = 0; readChar != 0; readChar++){
-			if (readChar = "0"){
-				printf("O");
-			}
 		}
 	}
 	
