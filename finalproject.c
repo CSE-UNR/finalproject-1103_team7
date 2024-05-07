@@ -86,8 +86,8 @@ int displayMenu(){
 	
 //3. display image fuction
 	void displayImg(char catArray[][CAT_ARRAY], int *row, int *col){
-		for(int i=0; i<*row; i++){
-			for(int j=0; j<*col; j++){
+		for(int i=0; i < *row; i++){
+			for(int j=0; j < *col; j++){
 				printf("%c", catArray[i][j]);
 			}
 			printf("\n"); 
