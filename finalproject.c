@@ -12,7 +12,7 @@ Date: May, 07 2024
 int displayMenu(); 
 int loadImg(char catArray[][CAT_ARRAY], int *row, int *col); 
 void displayImg(char catArray[][CAT_ARRAY], int *row, int *col); 
-int editImg(); 
+int editImg(char catArray[][CAT_ARRAY], int *row, int *col); 
 void cropImg(char catArray[][CAT_ARRAY], int *row, int *col); 
 void dimImg(char catArray[][CAT_ARRAY], int *row, int *col); 
 void brightenImg(char catArray[][CAT_ARRAY], int *row, int *col); 
@@ -20,11 +20,8 @@ void saveImg(char catArray[][CAT_ARRAY], int *row, int *col);
 
 int main(){
 //declare variables 
-	FILE *catOutputFile;
-	int mainMenu();
-	int loadImg(int catSize[row][col]);
-	int row, col;
-	row = 0, col = 0; 
+	int row = 0; 
+	int col = 0;
 	char catArray[CAT_ARRAY][CAT_ARRAY]; 
 	int choice; 
 
@@ -36,7 +33,7 @@ int main(){
 				loadImg(catArray, &row, &col);
 				break; 
 			case 2: 
-				displayImag(catArray, &row, &col)
+				displayImg(catArray, &row, &col);
 				break;
 			case 3: 
 				editImg(catArray, row, col); 
@@ -50,8 +47,7 @@ int main(){
 	
 	return 0; 
 }
-*/
-}
+
 //functions start here !!  
 //1. display menu function
 int displayMenu(){
@@ -68,26 +64,37 @@ int displayMenu(){
 }
 
 //2. load image function 
-	int loadImg(){
-		outputFile = fopen("cat.txt", "r");
-			if (outputFile == NULL){
+	int loadImg(char catArray[][CAT_ARRAY], int *row, int *col){
+		FILE *inputFile; 
+		inputFile = fopen("cat.txt", "r"); 
+			if (inputFile == NULL){
 				printf("File does not exist.");
+				return 1; 
+			}
+			
+		fscanf(inputFile, "%d %d", row, col); 
+			for(int i=0; i<*row; i++){
+				for(int j= 0; j <*col; j++){
+					fscanf(inputFile, " %c", &catArray[i][j]); 
 				}
-		fprintf(outputFile, "cat\n");
-		fclose(outputFile);
-		printf("Created cat.txt.");
+			}
+			fclose(inputFile); 
+			printf("Image successfully loaded!\n"); 
+			return 0; 
 	}
+	
 //3. display image fuction
-	char displayImg(){
-	char catText;
-	){
-		printf("%c", catText);
+	void displayImg(char catArray[][CAT_ARRAY], int *row, int *col){
+		for(int i=0; i<*row; i++){
+			for(int j=0; j<*col; j++){
+				printf("%c", catArray[i][j]){
+			}
+			printf("\n"); 
 		}
-		return 0;
 	}
 
 //4. edit image menu function
-	int editImg(){
+	int editImg(char catArray[][CAT_ARRAY], int *row, int *col){
 		int editChoice;
 		printf("**EDITING**");
 		printf("1: Crop Image");
@@ -96,7 +103,7 @@ int displayMenu(){
 		printf("0: Return to main menu");   
 		printf("Choose from one of the options above: ");
 		scanf("%d", &editChoice);
-		return 0;
+		return editChoice; 
 		}
 		
 
@@ -173,13 +180,13 @@ int displayMenu(){
 			for(int j = 0; j <col; j++){
 				switch(catArray[i][j]){
 					case '.':
-						catArray[i][j] = "o"; 
+						catArray[i][j] = 'o'; 
 						break; 
 					case 'o': 
-						catArray[i][j] = "O"; 
+						catArray[i][j] = 'O';
 						break; 
 					case 'O':
-						catArray[i][j] = "0"; 
+						catArray[i][j] = '0'; 
 						break; 
 					case '0': 
 						break; 
@@ -190,16 +197,23 @@ int displayMenu(){
 	}
 
 //8. save image function 
-	int saveImg(){
-	char newImg[];
+	void saveImg(char catArray[][CAT_ARRAY], int row, int col){
+		FILE *catOutputFile; 
 		catOutputFile = fopen("newcat.txt", "w");
 			if(catOutputFile == NULL){
 				printf("File does not exist.");
 				}
-		fprintf("%s", newImg);
-		fclose(catOutputFile);
-		printf("New file successfully created!");
-		}
+			fprintf(catOutputFile, "%d %d\n", row, col); 
+			
+			for(int i=0; i<row; i++){
+				for(int j=0; j<col; j++){
+					fprintf(catOutputFile, "%c ", catArray[i][j]); 
+				}
+				fprintf(catOutputFile, "\n"); 
+			}
+			fclose(catOutputFile); 
+			printf("New file successfully created!"); 
+	}
 
 //9. extra credit: rotate image function 
 
