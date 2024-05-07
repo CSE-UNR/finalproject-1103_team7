@@ -36,7 +36,7 @@ int main(){
 				displayImg(catArray, &row, &col);
 				break;
 			case 3: 
-				editImg(catArray, row, col); 
+				editImg(catArray, &row, &col); 
 			case 0: 
 				printf("\nGoodbye!\n"); 
 				break; 
@@ -87,7 +87,7 @@ int displayMenu(){
 	void displayImg(char catArray[][CAT_ARRAY], int *row, int *col){
 		for(int i=0; i<*row; i++){
 			for(int j=0; j<*col; j++){
-				printf("%c", catArray[i][j]){
+				printf("%c", catArray[i][j]);
 			}
 			printf("\n"); 
 		}
