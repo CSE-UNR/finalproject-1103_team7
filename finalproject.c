@@ -14,7 +14,7 @@ int loadImg(char catArray[][CAT_ARRAY], int *row, int *col);
 void displayImg(char catArray[][CAT_ARRAY], int *row, int *col); 
 int editImg(char catArray[][CAT_ARRAY], int *row, int *col); 
 void cropImg(char catArray[][CAT_ARRAY], int *row, int *col); 
-void dimImg(char catArray[][CAT_ARRAY], int *row, int *col); 
+int dimImg(char catArray[][CAT_ARRAY], int *row, int *col); 
 void brightenImg(char catArray[][CAT_ARRAY], int *row, int *col); 
 void saveImg(char catArray[][CAT_ARRAY], int *row, int *col); 
 
@@ -148,7 +148,7 @@ int displayMenu(){
 
 
 //6. dim image function 
-	int dimImg(){
+	int dimImg(char catArray[][CAT_ARRAY], int *row, int *col){
 	char readChar;
 		
 		for(readChar = 0; readChar != 0; readChar++){
