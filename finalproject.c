@@ -105,6 +105,37 @@ int displayMenu(){
 		int right, left, bottom, top; 
 		printf("The image you want to crop is %d x %d.\n", *row, *col); 
 		printf("The row and column values start in the upper lefthand corner.\n"); 
+		printf("Which column do you want to be the new left side? ");
+		scanf("%d", &left); 
+		printf("Which column do you want to be the right left side? ");
+		scanf("%d", &right); 
+		printf("Which row do you want to be the new top? ");
+		scanf("%d", &top); 
+		printf("Which row do you want to be the new bottom? ");
+		scanf("%d", &bottom); 
+		
+		if(left< 0 || right >= *col || left >=  right){
+			printf("Invalid column value. Choose a value between %d and %d: ", left, right); 
+			return; 
+		}
+		if(top <0 || bottom >= *row || top >= bottom){
+			printf("Invalid row value. Choose a value betwee %d and %d: ", top, bottom); 
+			return; 
+		}
+		*col = right - left +1; 
+		*row = bottom - top +1; 
+		
+		char croppedImg[CAT_ARRAY][CAT_ARRAY];
+		for(int i=0; i< *row; i++){
+			for(int j=0; j< *col; j++){
+				croppedImg[i][j] = catArray[top +i][left +j];
+			}
+		}
+		for(int i=0; i< *row; i++){
+			for(int j=0; j< *col; j++){
+				catArray[i][j] = croppedImg[i][j];
+			}
+		}
 	}
 
 
