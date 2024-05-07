@@ -9,13 +9,17 @@ Date: May, 07 2024
 #include <stdio.h> 
 #include <stdbool.h>
 #define CAT_ARRAY 50
+#define ROW_SIZE 31
+#define COL_SIZE 13
+#define CAT_IMG "cat.txt"
 //function prototypes here 
 
 int main(){
 //declare variables 
-	FILE *catOutputFile;
+	FILE* catOutputFile;
+	int catSize [ROW_SIZE][COL_SIZE];
 	int mainMenu();
-	int loadImg(int catSize[row][col]);
+	int loadImg(int catSize[ROW_SIZE][COL_SIZE]);
 	int row, col;
 
 //main menu loop 
@@ -60,11 +64,11 @@ int mainMenu(){
 }
 
 //2. load image function 
-	int loadImg(int catSize[row][col]){
+	int loadImg(int catSize[][COL_SIZE]){
 		char array;
 		char cat[array];
 		int row = 0, col = 0;
-		catOutputFile = fopen("cat.txt", "r");
+		FILE* catOutputFile = fopen(CAT_IMG, "r");
 			printf("Name of the file: ");
 			scanf("%s", cat);
 			if (catOutputFile == NULL){
