@@ -22,13 +22,13 @@ int main(){
 //declare variables 
 	int row = 0; 
 	int col = 0;
-	char catArray[CAT_ARRAY][CAT_ARRAY]; 
+	char catArray[CAT_ARRAY][CAT_ARRAY];
 	int choice; 
 	int editChoice; 
 
 // enter switch for diff cases using functions made 
 	do{
-		choice = displayMenu(); 
+		choice = displayMenu();
 		switch(choice){
 			case 1: 
 				loadImg(catArray, &row, &col);
@@ -44,10 +44,11 @@ int main(){
 			}
 			switch(editChoice){
 				case 1: 
-					cropImg(catArray, &row, &col); 
+					cropImg(catArray, &row, &col);
+								
 					break; 
 				case 2: 
-					dimImg(catArray, row, col); 
+					dimImg(catArray, row, col);
 					break; 
 				case 3: 
 					brightenImg(catArray, row, col); 
@@ -111,7 +112,6 @@ int displayMenu(){
 	void displayImg(char catArray[][CAT_ARRAY], int *row, int *col){
 		for(int i=0; i < *row; i++){
 			for(int j=0; j < *col; j++){
-			//printf("%c", catArray[i][j]);
 				if(catArray[i][j] == '0'){
 					printf(" ");
 					}
@@ -181,8 +181,10 @@ int displayMenu(){
 		for(int i=0; i< *row; i++){
 			for(int j=0; j< *col; j++){
 				catArray[i][j] = croppedImg[i][j];
+				//printf("%d", croppedImg[i][j]);
 			}
 		}
+	
 	}
 
 
@@ -191,44 +193,49 @@ int displayMenu(){
 	void dimImg(char catArray[][CAT_ARRAY], int row, int col){
 		for(int i=0; i<row; i++){
 			for(int j=0; j<col; j++){
-				if(catArray[i][j] == '.'){
+			if(catArray[i][j] == '0'){
 					printf(" ");
+					}
+				if(catArray[i][j] == '1'){
+					printf(" "); 
 				}
-				else if(catArray[i][j] == 'o'){
-					printf("."); 
+				if(catArray[i][j] == '2'){
+					printf(".");
 				}
-				else if(catArray[i][j] == 'O'){
-					printf("o");
+				if(catArray[i][j] == '3'){
+					printf("o"); 
 				}
-				else if(catArray[i][j] == '0'){
+				if(catArray[i][j] == '4'){
 					printf("O"); 
 				}
 			}
-		
+		printf("\n");
 		}
 	}
 	
 
 //7. brighten image function 
 	void brightenImg(char catArray[][CAT_ARRAY], int row, int col){
-		for(int i = 0; i < row; i++)
+		for(int i = 0; i < row; i++){
 			for(int j = 0; j <col; j++){
-				switch(catArray[i][j]){
-					case '.':
-						catArray[i][j] = 'o'; 
-						break; 
-					case 'o': 
-						catArray[i][j] = 'O';
-						break; 
-					case 'O':
-						catArray[i][j] = '0'; 
-						break; 
-					case '0': 
-						break; 
-					default: 
-						break; 
+				if(catArray[i][j] == '0'){
+					printf(".");
+					}
+				if(catArray[i][j] == '1'){
+					printf("o"); 
+				}
+				if(catArray[i][j] == '2'){
+					printf("O");
+				}
+				if(catArray[i][j] == '3'){
+					printf("0"); 
+				}
+				if(catArray[i][j] == '4'){
+					printf("0"); 
 				}
 			}
+		printf("\n");	
+		}
 	}
 
 //8. save image function 
