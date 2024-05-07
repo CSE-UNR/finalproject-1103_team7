@@ -8,13 +8,15 @@ Date: May, 07 2024
 
 #include <stdio.h> 
 #include <stdbool.h>
-#define CAT[ARRAY] 50
+#define CAT_ARRAY 50
 //function prototypes here 
 
 int main(){
-int row, col;
 //declare variables 
 	FILE *catOutputFile;
+	int mainMenu();
+	int loadImg(int catSize[row][col]);
+	int row, col;
 
 //main menu loop 
 	//mainMenu(); 
@@ -41,7 +43,7 @@ int row, col;
 return 0;
 }
 */
-
+}
 //functions start here !!  
 //1. display menu function
 int mainMenu(){
@@ -59,7 +61,9 @@ int mainMenu(){
 
 //2. load image function 
 	int loadImg(int catSize[row][col]){
+		char array;
 		char cat[array];
+		int row = 0, col = 0;
 		catOutputFile = fopen("cat.txt", "r");
 			printf("Name of the file: ");
 			scanf("%s", cat);
@@ -67,14 +71,14 @@ int mainMenu(){
 			printf("File does not exist.");
 				}
 			else{
-			int row = 0, col = 0;
 				while(fscanf(catOutputFile, "%d", &catSize[row][col]) == 1){
-					row++;
 					col++;
+					row++;
 				}
 			}
 		fclose(catOutputFile);
 		printf("File successfully loaded!");
+	
 	}
 	/*
 //3. display image fuction
