@@ -45,8 +45,7 @@ int main(){
 			}
 			switch(editChoice){
 				case 1: 
-					cropImg(catArray, &row, &col);
-								
+					cropImg(catArray, &row, &col);			
 					break; 
 				case 2: 
 					dimImg(catArray, row, col);
@@ -286,4 +285,19 @@ int displayMenu(){
 	}
 */
 //9. extra credit: rotate image function 
+// void rotateImg(char catArray[][CAT_ARRAY], int *row, int *col); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
