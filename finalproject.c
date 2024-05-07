@@ -24,6 +24,7 @@ int main(){
 	int col = 0;
 	char catArray[CAT_ARRAY][CAT_ARRAY]; 
 	int choice; 
+	int editChoice; 
 
 // enter switch for diff cases using functions made 
 	do{
@@ -36,7 +37,25 @@ int main(){
 				displayImg(catArray, &row, &col);
 				break;
 			case 3: 
-				editImg(catArray, &row, &col); 
+				editChoice = editImg(catArray, &row, &col); 
+				if(editChoice < 0 || editChoice>3){
+				printf("Invalid option, please try again.\n"); 
+				break; 
+			}
+			switch(editChoice){
+				case 1: 
+					cropImg(catArray, &row, &col); 
+					break; 
+				case 2: 
+					dimImg(catArray, row, col); 
+					break; 
+				case 3: 
+					brightenImg(catArray, row, col); 
+					break; 
+				case 0: 
+					break; 
+				
+			}
 				break; 
 			case 0: 
 				printf("\nGoodbye!\n"); 
@@ -102,7 +121,7 @@ int displayMenu(){
 		printf("2: Dim Image\n");
 		printf("3: Brighten Image\n");
 		printf("0: Return to main menu\n");   
-		printf("Choose from one of the options above: \n");
+		printf("Choose from one of the options above: ");
 		scanf("%d", &editChoice);
 		return editChoice; 
 		}
