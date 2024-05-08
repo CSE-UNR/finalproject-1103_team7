@@ -16,7 +16,7 @@ int editImg(char catArray[][CAT_ARRAY], int *row, int *col);
 void cropImg(char catArray[][CAT_ARRAY], int *row, int *col); 
 void dimImg(char catArray[][CAT_ARRAY], int row, int col); 
 void brightenImg(char catArray[][CAT_ARRAY], int row, int col); 
-//int saveImg(char catArray[][CAT_ARRAY], int *row, int *col); 
+int saveImg(char catArray[][CAT_ARRAY], int *row, int *col); 
 
 int main(){
 //declare variables 
@@ -60,37 +60,26 @@ int main(){
 					break; 
 				
 			}
-			scanf("%c", &save);
+
 			printf("Would you like to save the file? (Y/N): ");
-						scanf("%c", &save);
-							switch(save){
-							case 'Y':
-							//saveImg(catArray, &row, &col);
-							printf("Give your file a name: \n");
+				scanf(" %c", &save);
+					switch(save){
+						case 'Y':
+						case 'y':
+							saveImg(catArray, &row, &col);
 							break;
-							case 'N':
+						case 'N':
+						case 'n': 
 							displayMenu();
 							break;
-							}
-		//	printf("Would you like to save the file? (Y/N): ");
-						scanf("%c", &save);
-				
-							switch(save){
-							case 'Y':
-							//saveImg(catArray, &row, &col);
-							printf("Give your file a name: \n");
-							break;
-							case 'N':
-							displayMenu();
-							break;
-							}
-				break; 
-			case 0: 
-				printf("\nGoodbye!\n"); 
-				break; 
-			default:
-				printf("Invalid option, please try again.\n"); 
-			}
+					}
+					break; 
+				case 0: 
+					printf("\nGoodbye!\n"); 
+					break; 
+				default:
+					printf("Invalid option, please try again.\n"); 
+				}
 	} while(choice != 0); 
 	
 	return 0; 
@@ -264,26 +253,37 @@ int displayMenu(){
 		printf("\n");	
 		}
 	}
-/*
+
 //8. save image function 
 	int saveImg(char catArray[][CAT_ARRAY], int *row, int *col){
-		FILE *catOutputFile; 
-		catOutputFile = fopen("newcat.txt", "w");
-			if(catOutputFile == NULL){
-				printf("File does not exist.");
-				}
-			fprintf(catOutputFile, "%d %d\n", &catArray[i][j]); 
+		char filename[500]; 
+		char choice; 
+		printf("Would you like to save the file? (y/n) ");
+		scanf(" %c", &choice); 
+		
+		if(choice == 'y' || choice == 'Y'){
+			printf("What do you want to name the image file? (include the extension) "); 
+			scanf("%s", filename); 
 			
-			for(int i = 0; i < row; i++){
-				for(int j = 0; j < col; j++){
-					fprintf(catOutputFile, "%c ", catArray[i][j]); 
+		FILE *catOutputFile; 
+		catOutputFile = fopen(filename, "w");
+		if(catOutputFile == NULL){
+				printf("File does not exist.");
+				return 0; 
+		}
+		fprintf(catOutputFile, "%d %d\n", *row, *col); 
+			for(int i = 0; i < *row; i++){
+				for(int j = 0; j < *col; j++){
+					fprintf(catOutputFile, "%c ", catArray[i][j]); 	
 				}
 				fprintf(catOutputFile, "\n"); 
 			}
 			fclose(catOutputFile); 
-			printf("New file successfully created!"); 
+			printf("New file successfully created!!\n");
+		}
+		return 0; 
 	}
-*/
+
 //9. extra credit: rotate image function 
 // void rotateImg(char catArray[][CAT_ARRAY], int *row, int *col); 
 
